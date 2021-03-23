@@ -2,7 +2,7 @@ package com.example.demo.common;
 
 import lombok.Getter;
 
-public enum SAMSUNG_MAAP_TOKEN_OPTION {
+public enum RcsMaapTokenOption {
     ACCESS_TOKEN,
     TOKEN_TYPE,
     EXPIRES_IN,

@@ -2,8 +2,6 @@ package com.example.demo.samsung.dto;
 
 import java.io.Serializable;
 
-import com.example.demo.samsung.domain.MessageContact;
-import com.example.demo.samsung.domain.RcsMessage;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 

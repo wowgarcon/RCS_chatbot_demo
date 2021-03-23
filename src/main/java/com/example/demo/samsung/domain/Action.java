@@ -15,6 +15,10 @@ public class Action {
 	 */
 	private UrlAction urlAction;
 	/*
+	 * [Optional] Open a web site in localBrowser.
+	 */
+	private LocalBrowserAction localBrowserAction;
+	/*
 	 * [Optional] start Audio/Video/Enriched call via dialer.
 	 */
 	private DialerAction dialerAction;

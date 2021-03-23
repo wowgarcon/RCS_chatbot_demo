@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.samsung.dto.SamsungMaapResponseDto;
+import com.example.demo.samsung.domain.RcsMessageDomain;
 
 public interface RcsSendMessageService {
-	public void rcsSendMsgToMaap(SamsungMaapResponseDto samsungMaapResponseDto) throws Exception;
+	public void rcsSendMsgToMaap(RcsMessageDomain rcsMessageDomain) throws Exception;
 }

@@ -13,10 +13,11 @@ import lombok.Setter;
 public class RcsMessageDomain {
 	
 	// JSON Key값 설정
-	@JsonProperty("RCSMessage")
-	private RcsMessage rcsMessage;
-	
+	@JsonProperty(value = "RCSMessage")
+	private RcsMessage rcsMessage;	
 	private MessageContact messageContact;
+	private String event;
+	private String isTyping;
 	
 //	@Builder
 //	public RcsMessageDomain(RcsMessage rcsMessage, MessageContact messageContact) {

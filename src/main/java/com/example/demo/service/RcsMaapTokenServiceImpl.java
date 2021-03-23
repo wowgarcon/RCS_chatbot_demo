@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.common.SAMSUNG_MAAP_TOKEN_OPTION;
+import com.example.demo.common.RcsMaapTokenOption;
 import com.example.demo.dto.MaapTokenResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
@@ -48,7 +47,7 @@ public class RcsMaapTokenServiceImpl implements RcsMaapTokenService {
         ResponseEntity<MaapTokenResponseDto> responseData = restTemplate.exchange(authTokenUrl, HttpMethod.POST, requestEntity, MaapTokenResponseDto.class);
 
         String token = responseData.getBody().getAccess_token();
-        rcsMaapToken.put(SAMSUNG_MAAP_TOKEN_OPTION.ACCESS_TOKEN.name(), token);
+        rcsMaapToken.put(RcsMaapTokenOption.ACCESS_TOKEN.name(), token);
         return token;
     }
 }

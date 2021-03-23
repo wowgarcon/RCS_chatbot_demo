@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.samsung.dto.SamsungMaapResponseDto;
+import com.example.demo.samsung.domain.RcsMessageDomain;
 import com.example.demo.service.RcsMaapTokenServiceImpl;
 import com.example.demo.service.RcsSendMessageServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -53,11 +53,11 @@ public class IndexController {
 	}
 
 	@PostMapping("/rcs/sendMessage")
-	public void sendMessageMaap(@RequestBody SamsungMaapResponseDto samsungMaapResponseDto) {
+	public void sendMessageMaap(@RequestBody RcsMessageDomain rcsMessageDomain) {
 		log.debug("STEP-01_SEND_MESSAGE CALL ===");
 		try {
-			log.debug("{}", samsungMaapResponseDto.getMessageContact().getUserContact());
-			rcsSendMessageServiceImpl.rcsSendMsgToMaap(samsungMaapResponseDto);
+			log.debug("{}", rcsMessageDomain.getMessageContact().getUserContact());
+			rcsSendMessageServiceImpl.rcsSendMsgToMaap(rcsMessageDomain);
 			log.debug("STEP-02_SEND_MESSAGE CALL ===");
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
