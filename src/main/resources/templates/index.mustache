@@ -1,0 +1,69 @@
+{{>layout/header}}
+
+<h1>RCS 제어 페이지</h1>
+
+<div class="main-container">
+	<div id="accordion">
+	  <div class="card">
+	    <div class="card-header" id="headingOne">
+	      <h5 class="mb-0">
+	        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	          토큰 생성
+	        </button>
+	      </h5>
+	    </div>
+	
+	    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+	      <div class="card-body">
+	      	<textarea class="form-control" id="content" readonly>{{#rcsToken}}{{rcsToken.accessToken}}{{/rcsToken}}</textarea>
+	      	
+			<div class="buttonZone">
+				<button class="btn btn-success" id="btn-createToken">
+					CreateToken
+				</button>
+				
+				<button class="btn btn-success" id="btn-refreshToken">
+					RefreshToken
+				</button>
+			</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <div class="card-header" id="headingTwo">
+	      <h5 class="mb-0">
+	        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	          메시지 보내기
+	        </button>
+	      </h5>
+	    </div>
+	    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+	      <div class="card-body">
+			<div class="buttonZone">
+				<input type="text" class="form-control" id="userContact" placeholder="폰 번호 예) +821012341234"></input>
+				<textarea class="form-control" id="textMessage" placeholder="메세지 내용"></textarea>
+				<button class="btn btn-success" id="btn-sendingMsg">
+					SendingMsg
+				</button>
+			</div>	
+	      </div>
+	    </div>
+	  </div>
+	  <div class="card">
+	    <div class="card-header" id="headingThree">
+	      <h5 class="mb-0">
+	        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	          뭐 넣지?
+	        </button>
+	      </h5>
+	    </div>
+	    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+	      <div class="card-body">
+	        냉무
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+{{>layout/footer}}
