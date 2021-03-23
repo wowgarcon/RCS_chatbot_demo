@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.RcsMessageEventOption;
 import com.example.demo.util.JsonParseUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/demo")
 @RestController
 public class RcsReceiveController {
-	private final RcsReceiveServiceImpl rcsReceiveServiceImpl;
+	private final RcsReceiveServiceImpl rcsReceiveService;
 	
 	@GetMapping(value = "/webhook/messages")
 	public ResponseEntity<?> testWebHook() {
@@ -35,9 +36,15 @@ public class RcsReceiveController {
 			@RequestBody(required = true) String resData) {
 		
 		try {
-			log.debug("RECEIVE_JSON_DATA [ {} ]", resData);
+			log.debug("MAAP_RECEIVE_DATA [ {} ]", resData);
 			SamsungMaapReceiveDto samsungMaapReceiveDto = JsonParseUtil.getStringToObjectData(resData, new SamsungMaapReceiveDto());
-			rcsReceiveServiceImpl.rcsReceiveService(samsungMaapReceiveDto);
+			String event = samsungMaapReceiveDto.getEvent();
+
+			// 사용자에 의한 메세지일 경우에만 serviceCall
+			if (!event.equals(RcsMessageEventOption.MESSAGE_STATUS.getValue())) {
+				log.debug("STEP-1 DEMO_API_CALL [ {} ]", resData);
+				rcsReceiveService.rcsReceiveService(samsungMaapReceiveDto);
+			}
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}

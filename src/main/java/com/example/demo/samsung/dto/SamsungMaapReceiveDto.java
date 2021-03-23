@@ -2,6 +2,8 @@ package com.example.demo.samsung.dto;
 
 import java.io.Serializable;
 
+import com.example.demo.samsung.domain.MessageContact;
+import com.example.demo.samsung.domain.RcsMessage;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -18,7 +20,7 @@ public class SamsungMaapReceiveDto implements Serializable {
 	private static final long serialVersionUID = -138283602955617069L;
 	
 	@JsonProperty(value = "RCSMessage")
-	private RcsMessage rcsMessage;	
+	private RcsMessage rcsMessage;
 	private MessageContact messageContact;
 	private String event;
 }
