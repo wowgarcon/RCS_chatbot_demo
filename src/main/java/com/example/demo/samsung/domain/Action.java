@@ -46,4 +46,5 @@ public class Action {
 	 * [Optional] his is the message body to send back to bot.
 	 */
 	private Postback postback;
+	private Result result;
 }

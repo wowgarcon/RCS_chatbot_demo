@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.common.RcsMessageActionOption;
+import com.example.demo.common.RcsMessageChipActionOption;
 import com.example.demo.common.RcsMessageChipContents;
 import com.example.demo.common.RcsMessageKtContents;
 import com.example.demo.samsung.domain.RcsMessageDomain;
@@ -16,9 +16,9 @@ public interface RcsMessageConverterService {
      * @param suggestions
      * @return rcsMessageDomain
      */
-    public RcsMessageDomain getTextMessage(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageActionOption, RcsMessageChipContents> suggestions);
-    public RcsMessageDomain getTextCustomMessage(String customMessage, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageActionOption, RcsMessageChipContents> suggestions);
-    public RcsMessageDomain getRichCard(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageActionOption, RcsMessageChipContents> suggestions);
-    public RcsMessageDomain getCarouselRichCard(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageActionOption, RcsMessageChipContents> suggestions);
+    public RcsMessageDomain getTextMessage(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageChipActionOption, RcsMessageChipContents> suggestions);
+    public RcsMessageDomain getTextCustomMessage(String customMessage, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageChipActionOption, RcsMessageChipContents> suggestions);
+    public RcsMessageDomain getRichCard(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageChipActionOption, RcsMessageChipContents> suggestions);
+    public RcsMessageDomain getCarouselRichCard(RcsMessageKtContents message, SamsungMaapReceiveDto receiveDto, LinkedHashMap<RcsMessageChipActionOption, RcsMessageChipContents> suggestions);
 //    public RcsMessageDomain getRichCard
 }

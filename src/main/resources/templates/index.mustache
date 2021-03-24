@@ -15,7 +15,7 @@
 	
 	    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 	      <div class="card-body">
-	      	<textarea class="form-control" id="content" readonly>{{#rcsToken}}{{rcsToken.accessToken}}{{/rcsToken}}</textarea>
+	      	<textarea class="form-control" id="content" readonly></textarea>
 	      	
 			<div class="buttonZone">
 				<button class="btn btn-success" id="btn-createToken">
@@ -53,13 +53,17 @@
 	    <div class="card-header" id="headingThree">
 	      <h5 class="mb-0">
 	        <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-	          뭐 넣지?
+	          로컬브라우져 지원 여부 확인
 	        </button>
 	      </h5>
 	    </div>
 	    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 	      <div class="card-body">
-	        냉무
+              <input type="text" class="form-control" id="capabilities" placeholder="폰 번호 예) +821012341234"></input>
+              <textarea class="form-control" id="capabilitiesList" readonly></textarea>
+              <button class="btn btn-success" id="btn-rcsCheckCapabilities">
+                  CHECK
+              </button>
 	      </div>
 	    </div>
 	  </div>

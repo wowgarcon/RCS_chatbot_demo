@@ -1,0 +1,12 @@
+{{>layout/header}}
+
+<button class="btn btn-success" onclick="sendResultToChatbot('PAY')">
+    로컬브라우져 지원 여부 확인
+</button>
+
+<script language="JavaScript">
+    function sendResultToChatbot(msg){
+        IMessagesCallback.setResult(msg);
+        self.close();
+    }
+</script>

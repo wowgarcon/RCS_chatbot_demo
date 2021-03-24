@@ -5,12 +5,9 @@ import com.example.demo.service.RcsMaapTokenServiceImpl;
 import com.example.demo.service.RcsSendMessageServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 
@@ -30,6 +27,11 @@ public class IndexController {
 	@GetMapping(value = "/terms")
 	public String terms() {
 		return "terms";
+	}
+
+	@GetMapping(value = "/param")
+	public String param() {
+		return "param";
 	}
 
 	@ResponseBody
@@ -62,5 +64,23 @@ public class IndexController {
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
+	}
+
+	@ResponseBody
+	@GetMapping("/rcsCheckCapabilities/{userContact}")
+	public String rcsCheckCapabilities(@PathVariable String userContact) {
+		log.debug(userContact);
+		String capabilities = "";
+		try {
+			capabilities = Optional.ofNullable(rcsSendMessageServiceImpl.rcsCheckCapabilities(userContact))
+					.filter(t -> t.length() > 0)
+					.orElseThrow(() -> new IllegalArgumentException("지원 단말 조회 실패"));
+		} catch (IllegalAccessException e) {
+			log.error(e.getMessage(), e);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+		}
+
+		return capabilities;
 	}
 }

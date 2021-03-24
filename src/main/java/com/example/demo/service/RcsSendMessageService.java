@@ -4,4 +4,5 @@ import com.example.demo.samsung.domain.RcsMessageDomain;
 
 public interface RcsSendMessageService {
 	public void rcsSendMsgToMaap(RcsMessageDomain rcsMessageDomain) throws Exception;
+	public String rcsCheckCapabilities(String contactUser) throws  Exception;
 }

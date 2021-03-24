@@ -6,11 +6,7 @@ import com.example.demo.samsung.domain.Reply;
 import lombok.Getter;
 
 
-public enum RcsMessageActionOption {
-
-    CHIP_ACTION(Action.class),
-    CHIP_REPLY(Reply.class),
-    CHIP_LOCAL_BROWSER_ACTION(LocalBrowserAction.class),
+public enum RcsMessageSugActionOption {
     SUG_ACTION(Action.class),
     SUG_REPLY(Reply.class),
     SUG_LOCAL_BROWSER_ACTION(LocalBrowserAction.class);
@@ -18,7 +14,7 @@ public enum RcsMessageActionOption {
     @Getter
     private Class classValue;
 
-    private RcsMessageActionOption(Class classValue) {
+    private RcsMessageSugActionOption(Class classValue) {
         this.classValue = classValue;
     }
 }
